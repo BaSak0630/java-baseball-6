@@ -1,8 +1,5 @@
 package baseball;
 
-import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +10,7 @@ public class Player {
         numbers = new ArrayList<>();
     }
 
-    public List<Integer> getNumbers() {
-        return numbers;
-    }
-
-    public void readNumber(String s) {
+    public List<Integer> readNumber(String s) {
         numbers.clear();
         try {
             Integer.parseInt(s);
@@ -27,14 +20,19 @@ public class Player {
         if (s.length() != 3) {
             throw new IllegalArgumentException("3자리 숫자만 입력해주세요.");
         }
-        Integer hundreds = (int) s.charAt(0) -'0';
-        Integer tens = (int) s.charAt(1) -'0';
-        Integer units = (int) s.charAt(2) -'0';
+        List<Integer> playNumbers = new ArrayList<>();
+        playNumbers.add((int) s.charAt(0) -'0');
+        playNumbers.add((int) s.charAt(1) -'0');
+        playNumbers.add((int) s.charAt(2) -'0');
 
-        validateDuplicate(hundreds, tens, units);
+        validateDuplicate(playNumbers);
+        return numbers;
     }
 
-    private void validateDuplicate(Integer hundreds, Integer tens, Integer units) {
+    private void validateDuplicate(List<Integer> playNumbers) {
+        int hundreds = playNumbers.get(0);
+        int tens = playNumbers.get(1);
+        int units = playNumbers.get(2);
         numbers.add(hundreds);
         if (numbers.contains(tens)) {
             throw new IllegalArgumentException("서로 다른 수를 입력해주세요");
@@ -44,6 +42,5 @@ public class Player {
             throw new IllegalArgumentException("서로 다른 수를 입력해주세요");
         }
         numbers.add(units);
-        System.out.println(">>"+numbers);
     }
 }

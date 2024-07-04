@@ -2,7 +2,6 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Console;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -26,9 +25,33 @@ public class BaseBallService {
     public void Play(){
         System.out.println("숫자 야구 게임을 시작합니다.");
         while (true){
-            //end check
             System.out.print("숫자를 입력해주세요 : ");
-            player.readNumber(Console.readLine());
+            List<Integer> playerNumbers = player.readNumber(Console.readLine());
+            boolean flag = computer.endChecking(playerNumbers);
+            if(flag){
+                boolean restart = restart();
+                if(restart){
+                    computer = new Computer();
+                }
+                if(!restart){
+                    break;
+                }
+            }
         }
+    }
+
+    private boolean restart() {
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        String restartStr = Console.readLine();
+        if(restartStr.length() != 1){
+            throw new IllegalArgumentException("1과 2를 입력하세요");
+        }
+        if(!(restartStr.equals("1")||restartStr.equals("2"))){
+            throw new IllegalArgumentException("1과 2를 입력하세요");
+        }
+        if(restartStr.equals("1")){
+            return true;
+        }
+        return false;
     }
 }
