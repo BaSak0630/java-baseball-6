@@ -34,7 +34,7 @@ public class Computer {
         return basBallNumberList;
     }
 
-    public boolean endChecking(List<Integer> playNumbers) {
+    public boolean endChecking(PlayerNumber playNumbers) {
         StringBuilder stringBuilder = new StringBuilder();
         Score score = baseBallNumber.getScore(playNumbers);
         if (score.getBall() != 0) {

@@ -7,7 +7,7 @@ import java.util.Set;
 public class Number {
     protected static final int BASE_BALL_NUMBER_SIZE = 3;
 
-    protected final List<Integer> baseBallNumbers;
+    private final List<Integer> baseBallNumbers;
 
     public Number(List<Integer> baseBallNumbers) {
         validateSize(baseBallNumbers);
@@ -26,5 +26,13 @@ public class Number {
         if (duplicateSet.size() != BASE_BALL_NUMBER_SIZE) {
             throw new IllegalArgumentException("서로 다른 수로 이루어진 3자리수만 가능합니다.");
         }
+    }
+
+    public int [] getBaseBallNumberArr() {
+        int [] baseBallNumberArr = new int[BASE_BALL_NUMBER_SIZE];
+        for (int i = 0; i < baseBallNumbers.size(); i++) {
+            baseBallNumberArr[i] = baseBallNumbers.get(i);
+        }
+        return baseBallNumberArr;
     }
 }

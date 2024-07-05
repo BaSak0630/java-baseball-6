@@ -8,7 +8,7 @@ public class Player {
     public Player() {
     }
 
-    public List<Integer> readNumberList(String s) {
+    public PlayerNumber readNumberList(String s) {
         try {
             Integer.parseInt(s);
         }catch (Exception e){
@@ -23,6 +23,6 @@ public class Player {
         list.add((int) s.charAt(2) -'0');
 
         playerNumber = new PlayerNumber(list);
-        return list;
+        return playerNumber;
     }
 }
