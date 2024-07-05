@@ -6,10 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BaseBallNumberTest {
-    private BaseBallNumber baseBallNumber;
+    private ComputerNumber baseBallNumber;
     @Test
     @DisplayName("사이즈 테스트")
     void validateSizeTest(){
@@ -22,7 +23,7 @@ class BaseBallNumberTest {
         numbers.add(4);
         //then
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
-            baseBallNumber = new BaseBallNumber(numbers);
+            baseBallNumber = new ComputerNumber(numbers);
         });
         assertEquals(e.getMessage(),"3자리 수만 가능합니다.");
     }
@@ -38,7 +39,7 @@ class BaseBallNumberTest {
         numbers.add(2);
         //then
         IllegalArgumentException e = assertThrows(IllegalArgumentException.class, () -> {
-            baseBallNumber = new BaseBallNumber(numbers);
+            baseBallNumber = new ComputerNumber(numbers);
         });
         assertEquals(e.getMessage(),"서로 다른 수로 이루어진 3자리수만 가능합니다.");
     }

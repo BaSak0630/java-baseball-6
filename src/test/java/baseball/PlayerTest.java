@@ -19,23 +19,23 @@ class PlayerTest {
 
         //expected
         IllegalArgumentException exception1 = assertThrows(IllegalArgumentException.class, () -> {
-            player.readNumber(str1);
+            player.readNumberList(str1);
         });
         assertEquals(exception1.getMessage(),"숫자만 입력해주세요.");
 
         IllegalArgumentException exception2 = assertThrows(IllegalArgumentException.class, () -> {
-            player.readNumber(str2);
+            player.readNumberList(str2);
         });
         assertEquals(exception2.getMessage(),"3자리 숫자만 입력해주세요.");
 
         IllegalArgumentException exception3= assertThrows(IllegalArgumentException.class, () -> {
-            player.readNumber(str3);
+            player.readNumberList(str3);
         });
         assertEquals(exception3.getMessage(),"3자리 숫자만 입력해주세요.");
 
         IllegalArgumentException exception4= assertThrows(IllegalArgumentException.class, () -> {
-            player.readNumber(str4);
+            player.readNumberList(str4);
         });
-        assertEquals(exception4.getMessage(),"서로 다른 수를 입력해주세요");
+        assertEquals(exception4.getMessage(),"서로 다른 수로 이루어진 3자리수만 가능합니다.");
     }
 }

@@ -13,10 +13,10 @@ import java.util.List;
  * 저작권 주의
  */
 public class Computer {
-    private static BaseBallNumber baseBallNumber;
+    private static ComputerNumber baseBallNumber;
 
     public Computer() {
-        baseBallNumber = new BaseBallNumber(createBasBallNumber());
+        baseBallNumber = new ComputerNumber(createBasBallNumber());
     }
 
     private List<Integer> createBasBallNumber() {
