@@ -14,8 +14,8 @@ import java.util.List;
  * 저작권 주의
  */
 public class BaseBallService {
+    private final Player player;
     private Computer computer;
-    private Player player;
 
     public BaseBallService() {
         this.computer = new Computer();
@@ -49,9 +49,6 @@ public class BaseBallService {
         if(!(restartStr.equals("1")||restartStr.equals("2"))){
             throw new IllegalArgumentException("1과 2를 입력하세요");
         }
-        if(restartStr.equals("1")){
-            return true;
-        }
-        return false;
+        return restartStr.equals("1");
     }
 }

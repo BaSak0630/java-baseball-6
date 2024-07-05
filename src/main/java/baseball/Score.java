@@ -10,8 +10,8 @@ package baseball;
  * 저작권 주의
  */
 public class Score {
-    private int strike;
-    private int ball;
+    private final int strike;
+    private final int ball;
 
     public Score(int strike, int ball) {
         this.strike = strike;

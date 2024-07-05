@@ -17,12 +17,12 @@ public class Player {
         if (s.length() != 3) {
             throw new IllegalArgumentException("3자리 숫자만 입력해주세요.");
         }
-        List<Integer> playNumbers = new ArrayList<>();
-        playNumbers.add((int) s.charAt(0) -'0');
-        playNumbers.add((int) s.charAt(1) -'0');
-        playNumbers.add((int) s.charAt(2) -'0');
+        List<Integer> list = new ArrayList<>();
+        list.add((int) s.charAt(0) -'0');
+        list.add((int) s.charAt(1) -'0');
+        list.add((int) s.charAt(2) -'0');
 
-        playerNumber = new PlayerNumber(playNumbers);
-        return playNumbers;
+        playerNumber = new PlayerNumber(list);
+        return list;
     }
 }
