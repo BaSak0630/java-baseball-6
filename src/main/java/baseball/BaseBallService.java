@@ -27,8 +27,8 @@ public class BaseBallService {
         while (true){
             System.out.print("숫자를 입력해주세요 : ");
             PlayerNumber playerNumbers = player.readNumberList(Console.readLine());
-            boolean flag = computer.endChecking(playerNumbers);
-            if(flag){
+            Flag flag = new Flag(computer.endChecking(playerNumbers));
+            if(flag.getState()){
                 boolean restart = restart();
                 if(restart){
                     computer = new Computer();
